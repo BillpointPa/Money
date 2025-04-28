@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EarnNaira Pro - Watch Ads & Earn Money</title>
+    <style>
+        :root {
+            --primary: #25D366;
+            --primary-dark: #128C7E;
+            --secondary: #FF9F43;
+            --dark: #333;
+            --light: #f5f5f5;
+            --gray: #777;
+            --light-gray: #e0e0e0;
+            --white: #fff;
+            --red: #e74c3c;
+            --green: #2ecc71;
+            --blue: #3498db;
+            --purple: #9b59b6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .tagline {
+            font-size: 14px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .balance-container {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 1px solid var(--light-gray);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .balance-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
+        .balance-label {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+        
+        .balance {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+        
+        .balance small {
+            font-size: 16px;
+            color: var(--gray);
+        }
+        
+        .earn-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .earn-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--light-gray);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .earn-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .platform-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .platform-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light);
+            border-radius: 50%;
+            font-size: 24px;
+            color: var(--white);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .platform-details h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .platform-details .amount {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        
+        .platform-details .info {
+            font-size: 12px;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .btn {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(to right, var(--secondary), #ff7b25);
+            box-shadow: 0 4px 10px rgba(255, 159, 67, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 6px 15px rgba(255, 159, 67, 0.4);
+        }
+        
+        .btn-blue {
+            background: linear-gradient(to right, var(--blue), #2980b9);
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn-blue:hover {
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-purple {
+            background: linear-gradient(to right, var(--purple), #8e44ad);
+            box-shadow: 0 4px 10px rgba(155, 89, 182, 0.3);
+        }
+        
+        .btn-purple:hover {
+            box-shadow: 0 6px 15px rgba(155, 89, 182, 0.4);
+        }
+        
+        .btn-red {
+            background: linear-gradient(to right, var(--red), #c0392b);
+            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+        }
+        
+        .btn-red:hover {
+            box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
+        }
+        
+        .btn-sm {
+            padding: 8px 15px;
+            font-size: 12px;
+        }
+        
+        .btn-disabled {
+            background: var(--light-gray);
+            color: var(--gray);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        
+        .btn-disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            animation: slideUp 0.4s;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+            transition: color 0.3s;
+        }
+        
+        .close:hover {
+            color: var(--dark);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 14px;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.2);
+            outline: none;
+        }
+        
+        .error {
+            color: var(--red);
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .switch-form {
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .switch-form a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+        
+        .switch-form a:hover {
+            text-decoration: underline;
+        }
+        
+        .ad-container {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ad-container::before {
+            content: "AD";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        
+        .ad-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #555;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 15px 0;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ad-placeholder::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                rgba(255,255,255,0.1) 25%, 
+                transparent 25%, 
+                transparent 50%, 
+                rgba(255,255,255,0.1) 50%, 
+                rgba(255,255,255,0.1) 75%, 
+                transparent 75%, 
+                transparent);
+            background-size: 50px 50px;
+            animation: adLoading 2s linear infinite;
+        }
+        
+        @keyframes adLoading {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+        
+        .ad-placeholder img {
+            max-width: 80%;
+            max-height: 80%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timer {
+            font-size: 16px;
+            margin: 10px 0;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            width: 0%;
+            transition: width 1s linear;
+            border-radius: 10px;
+        }
+        
+        .activation-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .activation-section h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .activation-section p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .payment-method {
+            padding: 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 120px;
+        }
+        
+        .payment-method:hover {
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .payment-method.active {
+            border-color: var(--primary);
+            background-color: rgba(37, 211, 102, 0.05);
+        }
+        
+        .payment-method i {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+        
+        .payment-method .name {
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            color: var(--gray);
+            font-size: 13px;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-item .number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+        
+        .stat-item .label {
+            font-size: 12px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .daily-reward {
+            background: linear-gradient(135deg, var(--secondary), #ff7b25);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 159, 67, 0.3);
+        }
+        
+        .daily-reward h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .daily-reward p {
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        .countdown {
+            font-size: 14px;
+            margin-top: 10px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        /* Font Awesome icons */
+        .fas, .fab {
+            font-family: 'Font Awesome';
+        }
+        
+        .facebook-bg {
+            background-color: #3b5998;
+        }
+        
+        .instagram-bg {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+        
+        .telegram-bg {
+            background-color: #0088cc;
+        }
+        
+        .whatsapp-bg {
+            background-color: #25D366;
+        }
+        
+        .tiktok-bg {
+            background-color: #000000;
+        }
+        
+        .ad-bg {
+            background-color: #FF9F43;
+        }
+        
+        .reward-bg {
+            background: linear-gradient(135deg, #f6d365, #fda085);
+        }
+        
+        /* Withdrawal modal styles */
+        .withdrawal-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .withdrawal-method {
+            padding: 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .withdrawal-method:hover {
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .withdrawal-method.active {
+            border-color: var(--primary);
+            background-color: rgba(37, 211, 102, 0.05);
+        }
+        
+        .withdrawal-method i {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+        
+        .withdrawal-method .name {
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        /* Video ad styles */
+        .video-container {
+            width: 100%;
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        /* Local time display */
+        .local-time {
+            font-size: 12px;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Signup Modal (shown first) -->
+    <div class="modal" id="signupModal" style="display: flex;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="logo" style="margin-bottom: 20px;">Earn<span>Naira</span> Pro</div>
+            <h2 style="margin-bottom: 20px;">Create Your Account</h2>
+            <p style="margin-bottom: 20px; color: var(--gray); font-size: 14px;">Sign up to start earning money by watching ads and completing tasks</p>
+            
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" required placeholder="Enter your email">
+                    <div class="error" id="signupEmailError">Email already registered</div>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required placeholder="Create a password">
+                    <div class="error" id="signupPasswordError">Password must be at least 6 characters</div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required placeholder="Confirm your password">
+                    <div class="error" id="confirmPasswordError">Passwords don't match</div>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </button>
+            </form>
+            
+            <div class="switch-form">
+                Already have an account? <a href="#" id="switchToLogin">Login</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="logo" style="margin-bottom: 20px;">Earn<span>Naira</span> Pro</div>
+            <h2 style="margin-bottom: 20px;">Welcome Back</h2>
+            <p style="margin-bottom: 20px; color: var(--gray); font-size: 14px;">Login to continue earning</p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" required placeholder="Enter your email">
+                    <div class="error" id="loginEmailError">Email not registered</div>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Enter your password">
+                    <div class="error" id="loginPasswordError">Incorrect password</div>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+            
+            <div class="switch-form">
+                Don't have an account? <a href="#" id="switchToSignup">Sign up</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main App (hidden until logged in) -->
+    <div id="appContent" style="display: none;">
+        <header>
+            <div class="container">
+                <div class="nav" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <div class="user-info" style="color: var(--white); font-size: 14px;">
+                        <i class="fas fa-user-circle"></i> <span id="userEmail"></span>
+                    </div>
+                    <button class="btn btn-sm btn-outline" id="logoutBtn" style="padding: 8px 15px;">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+                <div class="logo">Earn<span>Naira</span> Pro</div>
+                <p class="tagline">Watch ads, complete tasks and earn real money</p>
+            </div>
+        </header>
+        
+        <div class="container">
+            <div class="balance-container">
+                <p class="balance-label">Available Balance</p>
+                <div class="balance">₦<span id="currentBalance">0.00</span> <small>NGN</small></div>
+                <button class="btn btn-secondary" id="withdrawBtn" style="margin-top: 10px;">
+                    <i class="fas fa-wallet"></i> Withdraw Earnings
+                </button>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="number" id="totalEarnings">₦0</div>
+                    <div class="label">Total Earned</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number" id="tasksCompleted">0</div>
+                    <div class="label">Tasks Done</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number" id="adsWatched">0</div>
+                    <div class="label">Ads Watched</div>
+                </div>
+            </div>
+            
+            <!-- Daily Reward Section -->
+            <div class="daily-reward" id="dailyRewardSection">
+                <h3><i class="fas fa-gift"></i> Daily Reward</h3>
+                <p>Claim your daily reward of ₦10 just for logging in!</p>
+                <button class="btn btn-purple" id="claimDailyRewardBtn">
+                    <i class="fas fa-coins"></i> Claim ₦10
+                </button>
+                <div class="countdown" id="dailyRewardCountdown"></div>
+            </div>
+            
+            <h2 style="margin-bottom: 20px; color: var(--dark);">Available Earnings Options</h2>
+            <div class="earn-options">
+                <!-- WhatsApp -->
+                <div class="earn-card">
+                    <div class="platform-info">
+                        <div class="platform-icon whatsapp-bg">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="platform-details">
+                            <h3>WhatsApp</h3>
+                            <div class="amount">₦500</div>
+                            <div class="info">
+                                <i class="fas fa-clock"></i> Auto-claim once daily
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-blue claim-btn" data-platform="WhatsApp" data-amount="500">
+                        <i class="fas fa-bolt"></i> Auto Claim
+                    </button>
+                </div>
+                
+                <!-- Facebook -->
+                <div class="earn-card">
+                    <div class="platform-info">
+                        <div class="platform-icon facebook-bg">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="platform-details">
+                            <h3>Facebook</h3>
+                            <div class="amount">₦1500</div>
+                            <div class="info">
+                                <i class="fas fa-clock"></i> Auto-claim once daily
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-blue claim-btn" data-platform="Facebook" data-amount="1500">
+                        <i class="fas fa-bolt"></i> Auto Claim
+                    </button>
+                </div>
+                
+                <!-- Instagram -->
+                <div class="earn-card">
+                    <div class="platform-info">
+                        <div class="platform-icon instagram-bg">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="platform-details">
+                            <h3>Instagram</h3>
+                            <div class="amount">₦2500</div>
+                            <div class="info">
+                                <i class="fas fa-clock"></i> Auto-claim once daily
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-purple claim-btn" data-platform="Instagram" data-amount="2500">
+                        <i class="fas fa-bolt"></i> Auto Claim
+                    </button>
+                </div>
+                
+                <!-- Telegram -->
+                <div class="earn-card">
+                    <div class="platform-info">
+                        <div class="platform-icon telegram-bg">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <div class="platform-details">
+                            <h3>Telegram</h3>
+                            <div class="amount">₦1000</div>
+                            <div class="info">
+                                <i class="fas fa-clock"></i> Auto-claim once daily
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-blue claim-btn" data-platform="Telegram" data-amount="1000">
+                        <i class="fas fa-bolt"></i> Auto Claim
+                    </button>
+                </div>
+                
+                <!-- TikTok -->
+                <div class="earn-card">
+                    <div class="platform-info">
+                        <div class="platform-icon tiktok-bg">
+                            <i class="fab fa-tiktok"></i>
+                        </div>
+                        <div class="platform-details">
+                            <h3>TikTok</h3>
+                            <div class="amount">₦3000</div>
+                            <div class="info">
+                                <i class="fas fa-clock"></i> Auto-claim once daily
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-red claim-btn" data-platform="TikTok" data-amount="3000">
+                        <i class="fas fa-bolt"></i> Auto Claim
+                    </button>
+                </div>
+                
+                <!-- Watch Ads -->
+                <div class="earn-card">
+                    <div class="platform-info">
+                        <div class="platform-icon ad-bg">
+                            <i class="fas fa-ad"></i>
+                        </div>
+                        <div class="platform-details">
+                            <h3>Watch Ads</h3>
+                            <div class="amount">₦3000</div>
+                            <div class="info">
+                                <i class="fas fa-clock"></i> Auto-claim once daily
+                                <div class="local-time" id="adLocalTime"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary claim-btn" data-platform="Watch Ads" data-amount="3000">
+                        <i class="fas fa-bolt"></i> Auto Claim
+                    </button>
+                </div>
+            </div>
+            
+            <div class="activation-section" id="activationSection">
+                <h3>Account Activation Required</h3>
+                <p>To start earning money from social platforms, please activate your account with a one-time payment of ₦1000</p>
+                <button class="btn btn-secondary" id="activateBtn">
+                    <i class="fas fa-bolt"></i> Activate Account
+                </button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2023 EarnNaira Pro. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 12px;">
+                <a href="#" style="color: var(--gray); margin: 0 10px;">Terms of Service</a>
+                <a href="#" style="color: var(--gray); margin: 0 10px;">Privacy Policy</a>
+                <a href="#" style="color: var(--gray); margin: 0 10px;">Contact Us</a>
+            </p>
+        </footer>
+    </div>
+    
+    <!-- Ad Modal -->
+    <div class="modal" id="adModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="adPlatform">Watching Ad</h2>
+            <div class="ad-container">
+                <p>Please watch this ad completely to earn your reward</p>
+                <div class="video-container">
+                    <video id="adVideo" controls>
+                        <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="timer">Time remaining: <span id="timeRemaining">30</span> seconds</div>
+                <div class="progress-bar">
+                    <div class="progress" id="adProgress"></div>
+                </div>
+                <button class="btn" id="claimRewardBtn" disabled style="width: 100%; margin-top: 15px;">
+                    <i class="fas fa-gift"></i> Claim Reward
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Activation Modal -->
+    <div class="modal" id="activationModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="margin-bottom: 15px;">Activate Your Account</h2>
+            <p style="margin-bottom: 20px;">To start earning money, please complete your account activation by making a payment of ₦1000</p>
+            
+            <div class="payment-methods">
+                <div class="payment-method active" data-method="bank">
+                    <i class="fas fa-university"></i>
+                    <div class="name">Bank Transfer</div>
+                </div>
+                <div class="payment-method" data-method="usdt">
+                    <i class="fab fa-bitcoin"></i>
+                    <div class="name">USDT (TRC20)</div>
+                </div>
+                <div class="payment-method" data-method="airtime">
+                    <i class="fas fa-mobile-alt"></i>
+                    <div class="name">Airtime</div>
+                </div>
+            </div>
+            
+            <div id="paymentDetails" style="margin: 20px 0; text-align: left; background-color: var(--light); padding: 15px; border-radius: 8px;">
+                <h4 style="margin-bottom: 10px;">Bank Transfer Details:</h4>
+                <p style="font-size: 13px; margin-bottom: 5px;"><strong>Bank Name:</strong> PALMPAY Bank</p>
+                <p style="font-size: 13px; margin-bottom: 5px;"><strong>Account Name:</strong> Billpoint</p>
+                <p style="font-size: 13px; margin-bottom: 5px;"><strong>Account Number:</strong> 6683695069</p>
+                <p style="font-size: 12px; color: var(--gray); margin-top: 10px;">After payment, your account will be activated automatically within 1 minutes.</p>
+            </div>
+
+    <!-- Withdrawal Modal -->
+    <div class="modal" id="withdrawalModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="margin-bottom: 15px;">Withdraw Your Earnings</h2>
+            <p style="margin-bottom: 20px;">Choose your preferred withdrawal method and enter your details</p>
+            
+            <div class="form-group">
+                <label for="withdrawalAmount">Amount to Withdraw (₦)</label>
+                <input type="number" id="withdrawalAmount" min="1000" value="1000" required>
+                <div class="error" id="amountError">Minimum withdrawal is ₦1000</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="withdrawalMethod">Withdrawal Method</label>
+                <select id="withdrawalMethod" required>
+                    <option value="">Select method</option>
+                    <option value="bank">Bank Transfer</option>
+                    <option value="opay">OPay</option>
+                    <option value="usdt">USDT (TRC20)</option>
+                    <option value="airtime">Airtime</option>
+                </select>
+            </div>
+            
+            <div id="bankDetails" class="form-group" style="display: none;">
+                <label for="bankName">Bank Name</label>
+                <input type="text" id="bankName" placeholder="Enter bank name">
+                
+                <label for="accountName">Account Name</label>
+                <input type="text" id="accountName" placeholder="Enter account name">
+                
+                <label for="accountNumber">Account Number</label>
+                <input type="text" id="accountNumber" placeholder="Enter account number">
+            </div>
+            
+            <div id="opayDetails" class="form-group" style="display: none;">
+                <label for="opayNumber">OPay Phone Number</label>
+                <input type="text" id="opayNumber" placeholder="Enter OPay registered number">
+            </div>
+            
+            <div id="usdtDetails" class="form-group" style="display: none;">
+                <label for="usdtAddress">USDT Wallet Address (TRC20)</label>
+                <input type="text" id="usdtAddress" placeholder="Enter USDT wallet address">
+            </div>
+            
+            <div id="airtimeDetails" class="form-group" style="display: none;">
+                <label for="airtimeNumber">Phone Number for Airtime</label>
+                <input type="text" id="airtimeNumber" placeholder="Enter phone number">
+            </div>
+            
+            <button class="btn btn-secondary" id="submitWithdrawalBtn" style="width: 100%;">
+                <i class="fas fa-paper-plane"></i> Submit Withdrawal Request
+            </button>
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div style="text-align: center; margin: 20px 0;">
+                <i class="fas fa-check-circle" style="font-size: 60px; color: var(--green); margin-bottom: 20px;"></i>
+                <h2 style="margin-bottom: 10px;">Success!</h2>
+                <p id="successMessage">Your account has been activated successfully!</p>
+            </div>
+            <button class="btn" id="successOkBtn" style="width: 100%;">
+                <i class="fas fa-thumbs-up"></i> Continue Earning
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // Database simulation
+        let users = JSON.parse(localStorage.getItem('earnNairaUsers')) || [];
+        let currentUser = null;
+        let adImpressions = JSON.parse(localStorage.getItem('adImpressions')) || {};
+        let adClicks = JSON.parse(localStorage.getItem('adClicks')) || {};
+        
+        // Initialize ad impressions if not exists
+        const platforms = ['WhatsApp', 'Facebook', 'Instagram', 'Telegram', 'TikTok', 'Watch Ads'];
+        platforms.forEach(platform => {
+            if (!adImpressions[platform]) adImpressions[platform] = Math.floor(Math.random() * 1000) + 500;
+            if (!adClicks[platform]) adClicks[platform] = Math.floor(adImpressions[platform] * 0.3);
+        });
+        
+        // DOM Elements
+        const loginModal = document.getElementById('loginModal');
+        const signupModal = document.getElementById('signupModal');
+        const adModal = document.getElementById('adModal');
+        const activationModal = document.getElementById('activationModal');
+        const withdrawalModal = document.getElementById('withdrawalModal');
+        const successModal = document.getElementById('successModal');
+        const closeButtons = document.querySelectorAll('.close');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const switchToLogin = document.getElementById('switchToLogin');
+        const switchToSignup = document.getElementById('switchToSignup');
+        const claimButtons = document.querySelectorAll('.claim-btn');
+        const activateBtn = document.getElementById('activateBtn');
+        const withdrawBtn = document.getElementById('withdrawBtn');
+        const appContent = document.getElementById('appContent');
+        const userEmail = document.getElementById('userEmail');
+        const currentBalance = document.getElementById('currentBalance');
+        const totalEarnings = document.getElementById('totalEarnings');
+        const tasksCompleted = document.getElementById('tasksCompleted');
+        const adsWatched = document.getElementById('adsWatched');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const confirmActivationBtn = document.getElementById('confirmActivationBtn');
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        const paymentDetails = document.getElementById('paymentDetails');
+        const claimDailyRewardBtn = document.getElementById('claimDailyRewardBtn');
+        const dailyRewardCountdown = document.getElementById('dailyRewardCountdown');
+        const withdrawalMethod = document.getElementById('withdrawalMethod');
+        const bankDetails = document.getElementById('bankDetails');
+        const opayDetails = document.getElementById('opayDetails');
+        const usdtDetails = document.getElementById('usdtDetails');
+        const airtimeDetails = document.getElementById('airtimeDetails');
+        const submitWithdrawalBtn = document.getElementById('submitWithdrawalBtn');
+        const withdrawalAmount = document.getElementById('withdrawalAmount');
+        const amountError = document.getElementById('amountError');
+        const successOkBtn = document.getElementById('successOkBtn');
+        const adVideo = document.getElementById('adVideo');
+        const adLocalTime = document.getElementById('adLocalTime');
+        
+        // Show current local time for ads
+        function updateLocalTime() {
+            const now = new Date();
+            adLocalTime.textContent = `Local time: ${now.toLocaleTimeString()}`;
+        }
+        
+        setInterval(updateLocalTime, 1000);
+        updateLocalTime();
+        
+        // Show signup modal first
+        signupModal.style.display = 'flex';
+        
+        // Switch between login and signup
+        switchToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            signupModal.style.display = 'none';
+            loginModal.style.display = 'flex';
+        });
+        
+        switchToSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'none';
+            signupModal.style.display = 'flex';
+        });
+        
+        // Close modals
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                loginModal.style.display = 'none';
+                signupModal.style.display = 'none';
+                adModal.style.display = 'none';
+                activationModal.style.display = 'none';
+                withdrawalModal.style.display = 'none';
+                successModal.style.display = 'none';
+                
+                // Pause video when closing ad modal
+                if (adVideo) {
+                    adVideo.pause();
+                    adVideo.currentTime = 0;
+                }
+            });
+        });
+        
+        // Close when clicking outside modal
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) loginModal.style.display = 'none';
+            if (e.target === signupModal) signupModal.style.display = 'none';
+            if (e.target === adModal) {
+                adModal.style.display = 'none';
+                if (adVideo) {
+                    adVideo.pause();
+                    adVideo.currentTime = 0;
+                }
+            }
+            if (e.target === activationModal) activationModal.style.display = 'none';
+            if (e.target === withdrawalModal) withdrawalModal.style.display = 'none';
+            if (e.target === successModal) successModal.style.display = 'none';
+        });
+        
+        // Login form
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+            const password = document.getElementById('loginPassword').value;
+            
+            const user = users.find(u => u.email.toLowerCase() === email);
+            
+            if (!user) {
+                document.getElementById('loginEmailError').style.display = 'block';
+                document.getElementById('loginPasswordError').style.display = 'none';
+                return;
+            }
+            
+            if (user.password !== password) {
+                document.getElementById('loginPasswordError').style.display = 'block';
+                document.getElementById('loginEmailError').style.display = 'none';
+                return;
+            }
+            
+            currentUser = user;
+            updateUI();
+            loginModal.style.display = 'none';
+            showSuccessMessage(`Welcome back, ${email}!`);
+            
+            // Check for daily reward eligibility
+            checkDailyReward();
+        });
+        
+        // Signup form
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('signupEmail').value.trim().toLowerCase();
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Validate email format
+            if (!validateEmail(email)) {
+                document.getElementById('signupEmailError').textContent = 'Please enter a valid email address';
+                document.getElementById('signupEmailError').style.display = 'block';
+                return;
+            }
+            
+            // Validate password length
+            if (password.length < 6) {
+                document.getElementById('signupPasswordError').style.display = 'block';
+                document.getElementById('signupPasswordError').textContent = 'Password must be at least 6 characters';
+                return;
+            } else {
+                document.getElementById('signupPasswordError').style.display = 'none';
+            }
+            
+            // Check if email already exists (case insensitive)
+            if (users.some(u => u.email.toLowerCase() === email)) {
+                document.getElementById('signupEmailError').textContent = 'This email is already registered. Please login instead.';
+                document.getElementById('signupEmailError').style.display = 'block';
+                return;
+            } else {
+                document.getElementById('signupEmailError').style.display = 'none';
+            }
+            
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').style.display = 'block';
+                return;
+            } else {
+                document.getElementById('confirmPasswordError').style.display = 'none';
+            }
+            
+            // Create new user
+            const newUser = {
+                email: email,
+                password: password,
+                balance: 0,
+                activated: false,
+                earnings: [],
+                totalEarned: 0,
+                tasksCompleted: 0,
+                adsWatched: 0,
+                joinedDate: new Date().toLocaleDateString(),
+                lastDailyReward: null,
+                lastClaims: {}
+            };
+            
+            // Initialize last claims for each platform
+            platforms.forEach(platform => {
+                newUser.lastClaims[platform] = null;
+            });
+            
+            users.push(newUser);
+            localStorage.setItem('earnNairaUsers', JSON.stringify(users));
+            currentUser = newUser;
+            updateUI();
+            signupModal.style.display = 'none';
+            showSuccessMessage(`Account created successfully! Please activate your account to start earning.`);
+        });
+        
+        // Email validation function
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // Claim buttons
+        claimButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (!currentUser) {
+                    alert('Please login or signup first');
+                    loginModal.style.display = 'flex';
+                    return;
+                }
+                
+                const platform = button.getAttribute('data-platform');
+                const amount = parseInt(button.getAttribute('data-amount'));
+                
+                // For Watch Ads, show the ad modal
+                if (platform === 'Watch Ads') {
+                    showAd(platform);
+                    return;
+                }
+                
+                // For other platforms, check activation
+                if (!currentUser.activated) {
+                    alert('Please activate your account first');
+                    activationModal.style.display = 'flex';
+                    return;
+                }
+                
+                // Check if already claimed today
+                if (canClaim(platform)) {
+                    // Track click
+                    adClicks[platform]++;
+                    localStorage.setItem('adClicks', JSON.stringify(adClicks));
+                    
+                    // Auto claim the reward
+                    claimReward(platform, amount);
+                    
+                    // Update last claim time
+                    currentUser.lastClaims[platform] = new Date().getTime();
+                    
+                    // Update in users array
+                    const userIndex = users.findIndex(u => u.email === currentUser.email);
+                    if (userIndex !== -1) {
+                        users[userIndex] = currentUser;
+                        localStorage.setItem('earnNairaUsers', JSON.stringify(users));
+                    }
+                    
+                    // Update button state
+                    updateClaimButtons();
+                } else {
+                    alert(`You can only claim ${platform} reward once every 24 hours. Please come back later.`);
+                }
+            });
+        });
+        
+        // Check if platform can be claimed
+        function canClaim(platform) {
+            if (!currentUser.lastClaims[platform]) return true;
+            
+            const now = new Date().getTime();
+            const lastClaimTime = currentUser.lastClaims[platform];
+            const twentyFourHours = 24 * 60 * 60 * 1000;
+            
+            return (now - lastClaimTime) > twentyFourHours;
+        }
+        
+        // Update claim buttons state
+        function updateClaimButtons() {
+            claimButtons.forEach(button => {
+                const platform = button.getAttribute('data-platform');
+                if (canClaim(platform)) {
+                    button.classList.remove('btn-disabled');
+                    button.disabled = false;
+                    button.innerHTML = `<i class="fas fa-bolt"></i> Auto Claim`;
+                } else {
+                    button.classList.add('btn-disabled');
+                    button.disabled = true;
+                    
+                    // Calculate time remaining
+                    const now = new Date().getTime();
+                    const lastClaimTime = currentUser.lastClaims[platform] || now;
+                    const twentyFourHours = 24 * 60 * 60 * 1000;
+                    const nextClaimTime = lastClaimTime + twentyFourHours;
+                    const timeLeft = nextClaimTime - now;
+                    
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    
+                    button.innerHTML = `<i class="fas fa-clock"></i> Available in ${hours}h ${minutes}m`;
+                }
+            });
+        }
+        
+        // Show ad function
+        function showAd(platform) {
+            // Track impression
+            adImpressions[platform]++;
+            localStorage.setItem('adImpressions', JSON.stringify(adImpressions));
+            
+            document.getElementById('adPlatform').textContent = `Watching Ad for ${platform}`;
+            adModal.style.display = 'flex';
+            
+            // Reset video
+            adVideo.currentTime = 0;
+            adVideo.play();
+            
+            let timeLeft = 30;
+            document.getElementById('timeRemaining').textContent = timeLeft;
+            document.getElementById('claimRewardBtn').disabled = true;
+            document.getElementById('adProgress').style.width = '0%';
+            
+            const timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timeRemaining').textContent = timeLeft;
+                const progress = ((30 - timeLeft) / 30) * 100;
+                document.getElementById('adProgress').style.width = `${progress}%`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    document.getElementById('claimRewardBtn').disabled = false;
+                    adVideo.pause();
+                }
+            }, 1000);
+            
+            document.getElementById('claimRewardBtn').onclick = () => {
+                clearInterval(timer);
+                adModal.style.display = 'none';
+                adVideo.pause();
+                const amount = parseInt(document.querySelector(`.claim-btn[data-platform="${platform}"]`).getAttribute('data-amount'));
+                claimReward(platform, amount);
+            };
+        }
+        
+        // Claim reward function
+        function claimReward(platform, amount) {
+            if (!currentUser) return;
+            
+            currentUser.balance += amount;
+            currentUser.totalEarned += amount;
+            currentUser.tasksCompleted += 1;
+            currentUser.adsWatched += 1;
+            currentUser.earnings.push({
+                platform,
+                amount,
+                date: new Date().toLocaleString()
+            });
+            
+            // Update in users array
+            const userIndex = users.findIndex(u => u.email === currentUser.email);
+            if (userIndex !== -1) {
+                users[userIndex] = currentUser;
+                localStorage.setItem('earnNairaUsers', JSON.stringify(users));
+            }
+            
+            updateUI();
+            showSuccessMessage(`Congratulations! You've earned ₦${amount} from ${platform}`);
+        }
+        
+        // Claim daily reward
+        claimDailyRewardBtn.addEventListener('click', () => {
+            if (!currentUser) return;
+            
+            if (canClaimDailyReward()) {
+                currentUser.balance += 500;
+                currentUser.totalEarned += 500;
+                currentUser.lastDailyReward = new Date().getTime();
+                
+                // Update in users array
+                const userIndex = users.findIndex(u => u.email === currentUser.email);
+                if (userIndex !== -1) {
+                    users[userIndex] = currentUser;
+                    localStorage.setItem('earnNairaUsers', JSON.stringify(users));
+                }
+                
+                updateUI();
+                showSuccessMessage("Congratulations! You've claimed your daily reward of ₦500");
+                
+                // Update daily reward button
+                updateDailyRewardButton();
+            } else {
+                alert("You can only claim the daily reward once every 24 hours");
+            }
+        });
+        
+        // Check if daily reward can be claimed
+        function canClaimDailyReward() {
+            if (!currentUser.lastDailyReward) return true;
+            
+            const now = new Date().getTime();
+            const lastRewardTime = currentUser.lastDailyReward;
+            const twentyFourHours = 24 * 60 * 60 * 1000;
+            
+            return (now - lastRewardTime) > twentyFourHours;
+        }
+        
+        // Update daily reward button state
+        function updateDailyRewardButton() {
+            if (canClaimDailyReward()) {
+                claimDailyRewardBtn.classList.remove('btn-disabled');
+                claimDailyRewardBtn.disabled = false;
+                dailyRewardCountdown.textContent = "";
+            } else {
+                claimDailyRewardBtn.classList.add('btn-disabled');
+                claimDailyRewardBtn.disabled = true;
+                
+                // Calculate time remaining
+                const now = new Date().getTime();
+                const lastRewardTime = currentUser.lastDailyReward || now;
+                const twentyFourHours = 24 * 60 * 60 * 1000;
+                const nextRewardTime = lastRewardTime + twentyFourHours;
+                const timeLeft = nextRewardTime - now;
+                
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                dailyRewardCountdown.textContent = `Next reward in ${hours}h ${minutes}m ${seconds}s`;
+                
+                // Update countdown every second
+                const countdownInterval = setInterval(() => {
+                    const now = new Date().getTime();
+                    const timeLeft = nextRewardTime - now;
+                    
+                    if (timeLeft <= 0) {
+                        clearInterval(countdownInterval);
+                        updateDailyRewardButton();
+                        return;
+                    }
+                    
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    
+                    dailyRewardCountdown.textContent = `Next reward in ${hours}h ${minutes}m ${seconds}s`;
+                }, 1000);
+            }
+        }
+        
+        // Check daily reward on load
+        function checkDailyReward() {
+            if (currentUser) {
+                updateDailyRewardButton();
+            }
+        }
+        
+        // Activate account
+        activateBtn.addEventListener('click', () => {
+            if (!currentUser) {
+                alert('Please login or signup first');
+                loginModal.style.display = 'flex';
+                return;
+            }
+            
+            if (currentUser.activated) {
+                alert('Your account is already activated');
+                return;
+            }
+            
+            activationModal.style.display = 'flex';
+        });
+        
+        // Payment method selection
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', () => {
+                paymentMethods.forEach(m => m.classList.remove('active'));
+                method.classList.add('active');
+                
+                const paymentMethod = method.getAttribute('data-method');
+                let details = '';
+                
+                if (paymentMethod === 'bank') {
+                    details = `
+                        <h4 style="margin-bottom: 10px;">Bank Transfer Details:</h4>
+                        <p style="font-size: 13px; margin-bottom: 5px;"><strong>Bank Name:</strong> Zenith Bank</p>
+                        <p style="font-size: 13px; margin-bottom: 5px;"><strong>Account Name:</strong> EarnNaira Limited</p>
+                        <p style="font-size: 13px; margin-bottom: 5px;"><strong>Account Number:</strong> 1234567890</p>
+                        <p style="font-size: 12px; color: var(--gray); margin-top: 10px;">After payment, your account will be activated automatically within 5 minutes.</p>
+                    `;
+                } else if (paymentMethod === 'usdt') {
+                    details = `
+                        <h4 style="margin-bottom: 10px;">USDT (TRC20) Details:</h4>
+                        <p style="font-size: 13px; margin-bottom: 5px;"><strong>Wallet Address:</strong> TY76fGHD5432Jkloi98UYTR6543WQaz</p>
+                        <p style="font-size: 13px; margin-bottom: 5px;"><strong>Network:</strong> TRON (TRC20)</p>
+                        <p style="font-size: 13px; margin-bottom: 5px;"><strong>Amount:</strong> $2.14 (₦1000 equivalent)</p>
+                        <p style="font-size: 12px; color: var(--gray); margin-top: 10px;">Send exact amount and your account will be activated after 3 confirmations.</p>
+                    `;
+                } else if (paymentMethod === 'airtime') {
+                    details = `
+                        <h4 style="margin-bottom: 10px;">Airtime Payment:</h4>
+                        <p style="font-size: 13px; margin-bottom: 5px;"><strong>Step 1:</strong> Recharge ₦1000 airtime</p>
+                        <p style="font-size: 13px; margin-bottom: 5px;"><strong>Step 2:</strong> Dial *123*1*08123456789#</p>
+                        <p style="font-size: 13px; margin-bottom: 5px;"><strong>Step 3:</strong> Wait for confirmation SMS</p>
+                        <p style="font-size: 12px; color: var(--gray); margin-top: 10px;">Your account will be activated within 10 minutes of successful payment.</p>
+                    `;
+                }
+                
+                paymentDetails.innerHTML = details;
+            });
+        });
+        
+        // Confirm activation
+        confirmActivationBtn.addEventListener('click', () => {
+            if (!currentUser) return;
+            
+            // Simulate payment processing
+            setTimeout(() => {
+                currentUser.activated = true;
+                
+                // Update in users array
+                const userIndex = users.findIndex(u => u.email === currentUser.email);
+                if (userIndex !== -1) {
+                    users[userIndex] = currentUser;
+                    localStorage.setItem('earnNairaUsers', JSON.stringify(users));
+                }
+                
+                activationModal.style.display = 'none';
+                updateUI();
+                showSuccessMessage('Account activated successfully! You can now start earning.');
+                
+                // Check daily reward eligibility
+                checkDailyReward();
+            }, 2000);
+        });
+        
+        // Withdraw button
+        withdrawBtn.addEventListener('click', () => {
+            if (!currentUser) {
+                alert('Please login or signup first');
+                loginModal.style.display = 'flex';
+                return;
+            }
+            
+            withdrawalModal.style.display = 'flex';
+        });
+        
+        // Withdrawal method change
+        withdrawalMethod.addEventListener('change', (e) => {
+            const method = e.target.value;
+            
+            // Hide all details first
+            bankDetails.style.display = 'none';
+            opayDetails.style.display = 'none';
+            usdtDetails.style.display = 'none';
+            airtimeDetails.style.display = 'none';
+            
+            // Show selected method details
+            if (method === 'bank') {
+                bankDetails.style.display = 'block';
+            } else if (method === 'opay') {
+                opayDetails.style.display = 'block';
+            } else if (method === 'usdt') {
+                usdtDetails.style.display = 'block';
+            } else if (method === 'airtime') {
+                airtimeDetails.style.display = 'block';
+            }
+        });
+        
+        // Validate withdrawal amount
+        withdrawalAmount.addEventListener('input', (e) => {
+            const amount = parseFloat(e.target.value);
+            if (amount < 500) {
+                amountError.style.display = 'block';
+                submitWithdrawalBtn.disabled = true;
+            } else {
+                amountError.style.display = 'none';
+                submitWithdrawalBtn.disabled = false;
+            }
+        });
+        
+        // Submit withdrawal request
+        submitWithdrawalBtn.addEventListener('click', () => {
+            const amount = parseFloat(withdrawalAmount.value);
+            const method = withdrawalMethod.value;
+            
+            if (amount < 500) {
+                amountError.style.display = 'block';
+                return;
+            }
+            
+            if (!method) {
+                alert('Please select a withdrawal method');
+                return;
+            }
+            
+            if (currentUser.balance < amount) {
+                alert(`Insufficient balance. Your current balance is ₦${currentUser.balance}`);
+                return;
+            }
+            
+            // Process withdrawal
+            currentUser.balance -= amount;
+            
+            // Update in users array
+            const userIndex = users.findIndex(u => u.email === currentUser.email);
+            if (userIndex !== -1) {
+                users[userIndex] = currentUser;
+                localStorage.setItem('earnNairaUsers', JSON.stringify(users));
+            }
+            
+            withdrawalModal.style.display = 'none';
+            updateUI();
+            showSuccessMessage(`Withdrawal request for ₦${amount} via ${method} submitted successfully! Payment will be processed within 24 hours.`);
+        });
+        
+        // Success OK button
+        successOkBtn.addEventListener('click', () => {
+            successModal.style.display = 'none';
+        });
+        
+        // Logout
+        logoutBtn.addEventListener('click', () => {
+            currentUser = null;
+            updateUI();
+            signupModal.style.display = 'flex';
+        });
+        
+        // Show success message
+        function showSuccessMessage(message) {
+            document.getElementById('successMessage').textContent = message;
+            successModal.style.display = 'flex';
+        }
+        
+        // Update UI based on user state
+        function updateUI() {
+            if (currentUser) {
+                appContent.style.display = 'block';
+                userEmail.textContent = currentUser.email;
+                currentBalance.textContent = currentUser.balance.toFixed(2);
+                totalEarnings.textContent = `₦${currentUser.totalEarned.toFixed(2)}`;
+                tasksCompleted.textContent = currentUser.tasksCompleted;
+                adsWatched.textContent = currentUser.adsWatched;
+                
+                if (currentUser.activated) {
+                    document.getElementById('activationSection').style.display = 'none';
+                    updateClaimButtons();
+                } else {
+                    document.getElementById('activationSection').style.display = 'block';
+                }
+            } else {
+                appContent.style.display = 'none';
+            }
+        }
+        
+        // Initialize
+        updateUI();
+    </script>
+</body>
+</html>
